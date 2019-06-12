@@ -60,9 +60,9 @@ body {
     }
     .nav-item:hover {
       cursor: pointer;
-      color: #4e98ff;
-      background: rgba(0, 0, 0, 0.2);
-      border-bottom: 2px solid #4e98ff;
+      color: #ffcb3d;
+      background: rgba(0, 0, 0, 0.5);
+      border-bottom: 2px solid #ffcb3d;
     }
   }
 }
