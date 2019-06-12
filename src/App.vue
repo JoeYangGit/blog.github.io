@@ -36,10 +36,15 @@ body {
   align-items: center;
   .logo {
     margin: 0 20px;
-    padding: 0 20px;
-    border-right: 1px solid #ffffff;
+    padding-left: 20px;
     display: flex;
     align-items: center;
+  }
+  .logo::after {
+    content: "";
+    border-right: 2px solid #ffffff;
+    height: 20px;
+    margin-left: 20px;
   }
   .nav-items {
     display: flex;
@@ -51,7 +56,7 @@ body {
       font-weight: 500;
       font-size: 16px;
       padding: 0 20px;
-      border-bottom: 2px solid transparent;
+      border-bottom: 2px solid #000000;
     }
     .nav-item:hover {
       cursor: pointer;
