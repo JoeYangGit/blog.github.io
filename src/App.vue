@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <div class="logo"></div>
+      <div class="logo">
+        <img src="./assets/logo.svg" height="36px">
+      </div>
       <div class="nav-items">
         <div class="nav-item">主页</div>
         <div class="nav-item">文章</div>
@@ -33,9 +35,11 @@ body {
   position: absolute;
   align-items: center;
   .logo {
-    margin: 10px 20px;
-    padding: 10px;
+    margin: 0 20px;
+    padding: 0 20px;
     border-right: 1px solid #ffffff;
+    display: flex;
+    align-items: center;
   }
   .nav-items {
     display: flex;
