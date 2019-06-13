@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <div class="logo">
-        <img src="./assets/logo-white.svg" height="36px">
+        <img src="./assets/logo-white.svg" height="36px" @click="$router.push({path: '/home'})">
       </div>
       <div class="nav-items">
         <div
@@ -59,16 +59,27 @@ body {
   color: #2c3e50;
   position: relative;
 }
+@media screen and (min-width: 1441px) {
+  #app {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  #app {
+    font-size: 16px;
+  }
+}
 #nav {
-  height: 50px;
+  height: 4rem;
   width: 100%;
   display: flex;
   background: rgba(0, 0, 0, 0.9);
   align-items: center;
-  position: absolute;
+  position: fixed;
+  z-index: 1000;
   .logo {
-    margin: 0 20px;
-    padding-left: 20px;
+    margin: 0 2rem;
+    padding-left: 2rem;
     display: flex;
     align-items: center;
   }
@@ -78,8 +89,8 @@ body {
   .logo::after {
     content: "";
     border-right: 2px solid #ffffff;
-    height: 20px;
-    margin-left: 20px;
+    height: 2rem;
+    margin-left: 2rem;
   }
   .nav-items {
     display: flex;
@@ -89,8 +100,8 @@ body {
       align-items: center;
       color: #ffffff;
       font-weight: 500;
-      font-size: 16px;
-      padding: 0 20px;
+      font-size: 1.2rem;
+      padding: 0 2rem;
       border-bottom: 2px solid transparent;
       transition: all 0.3s;
     }

@@ -3,3 +3,8 @@
     <h1>This is an about page</h1>
   </div>
 </template>
+<style lang="less">
+.about {
+  padding-top: 50px;
+}
+</style>
