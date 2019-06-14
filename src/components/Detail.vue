@@ -6,12 +6,35 @@
         <div class="detail-container-header-title">{{info.text}}</div>
         <div class="detail-container-header-rect"></div>
       </div>
+      <div v-for="item in contents" :key="item.title" class="detail-container-content-box">
+        <TextImage
+          v-if="item.type === 'text-left'"
+          type="left"
+          :title="item.title"
+          :text="item.content"
+          :image="item.image"
+        ></TextImage>
+        <TextImage
+          v-if="item.type === 'text-right'"
+          type="right"
+          :title="item.title"
+          :text="item.content"
+          :image="item.image"
+        ></TextImage>
+        <Textes v-if="item.type === 'text'" :title="item.title" :text="item.content"></Textes>
+        <Images v-if="item.type === 'image'" :title="item.title" :image="item.image"></Images>
+      </div>
     </div>
     <div class="detail-mask" @click="close"></div>
   </div>
 </template>
 
 <script>
+import detail from '../assets/js/details'
+import TextImage from '@/components/TextImage.vue'
+import Textes from '@/components/Text.vue'
+import Images from '@/components/Image.vue'
+
 export default {
   name: 'Detail',
   props: {
@@ -19,6 +42,17 @@ export default {
     id: {
       type: String,
       required: true
+    }
+  },
+  components: {
+    TextImage,
+    Textes,
+    Images
+  },
+  data () {
+    return {
+      details: {},
+      contents: []
     }
   },
   methods: {
@@ -30,10 +64,9 @@ export default {
     }
   },
   mounted () {
+    this.details = detail[this.id]
+    this.contents = Object.values(this.details.contents)
     const body = document.getElementsByTagName('body')[0]
-    const detailDom = document.getElementsByClassName('detail')[0]
-    const scrollHeight = body.scrollHeight
-    detailDom.style.height = scrollHeight + 'px'
     body.style.overflow = 'hidden'
     window.scrollTo(0, 0)
   },
@@ -47,29 +80,31 @@ export default {
 <style lang="less">
 .detail {
   position: absolute;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   top: 0;
   z-index: 1001;
   overflow: auto;
   display: flex;
   justify-content: center;
+  overflow: hidden;
   &-mask {
-    overflow: auto;
     background: rgba(0, 0, 0, 0.8);
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    position: absolute;
   }
   &-container {
-    position: absolute;
+    z-index: 1001;
+    overflow-y: auto;
     background: #f0f0f0;
     width: 70%;
+    height: 100vh;
     border: 1px solid #dcdfe6;
     border-radius: 5px;
     &-header {
       display: flex;
       flex-direction: column;
-      // justify-content: center;
       align-items: center;
       &-img {
         height: 30rem;
@@ -91,6 +126,9 @@ export default {
         background: #cca473;
         margin-bottom: 3.5rem;
       }
+    }
+    &-content-box {
+      margin: 5rem;
     }
   }
 }
