@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <div class="logo">
-        <img src="./assets/logo-white.svg" height="36px" @click="$router.push({path: '/home'})">
+        <img class="logo-img" src="./assets/logo-white.svg" @click="$router.push({path: '/home'})">
       </div>
       <div class="nav-items">
         <div
@@ -41,6 +41,17 @@ export default {
   methods: {
     toPath (path) {
       this.$router.push({ path: path })
+    },
+    setRootFontSize () {
+      const html = document.getElementsByTagName('html')[0]
+      const rootWidth = html.clientWidth
+      html.style.fontSize = 12 * (rootWidth / 1280) + 'px'
+    }
+  },
+  mounted () {
+    this.setRootFontSize()
+    window.onresize = () => {
+      this.setRootFontSize()
     }
   }
 }
@@ -59,16 +70,6 @@ body {
   color: #2c3e50;
   position: relative;
 }
-@media screen and (min-width: 1441px) {
-  #app {
-    font-size: 12px;
-  }
-}
-@media screen and (max-width: 1440px) {
-  #app {
-    font-size: 16px;
-  }
-}
 #nav {
   height: 4rem;
   width: 100%;
@@ -82,6 +83,9 @@ body {
     padding-left: 2rem;
     display: flex;
     align-items: center;
+    &-img {
+      height: 2.6rem;
+    }
   }
   .logo:hover {
     cursor: pointer;
@@ -100,7 +104,7 @@ body {
       align-items: center;
       color: #ffffff;
       font-weight: 500;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       padding: 0 2rem;
       border-bottom: 2px solid transparent;
       transition: all 0.3s;

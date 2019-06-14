@@ -11,12 +11,15 @@
       <div class="home-banner-mask"></div>
     </div>
     <div class="home-box">
-      <div class="home-box-title">最新动态</div>
+      <div class="home-box-title">最新文章</div>
       <div class="home-box-link-box">
         <div class="home-box-link-item"></div>
         <div class="home-box-link-item"></div>
         <div class="home-box-link-item"></div>
-        <div class="home-box-link-item"></div>
+        <div class="home-box-link-item home-box-link-item-last">
+          MORE
+          <img src="../assets/more.svg" class="home-box-link-item-more" alt>
+        </div>
       </div>
     </div>
   </div>
@@ -79,7 +82,7 @@ export default {
       background-size: contain;
     }
     &-title {
-      font-size: 3rem;
+      font-size: 4rem;
       font-weight: 600;
       margin: 5% 0;
       z-index: 1;
@@ -110,9 +113,30 @@ export default {
       justify-content: space-between;
     }
     &-link-item {
-      height: 12rem;
-      width: 14rem;
+      height: 14rem;
+      width: 19rem;
       background: #cca473;
+      cursor: pointer;
+      transition: all 0.3s;
+      &-more {
+        position: absolute;
+        height: 80%;
+        opacity: 0.1;
+      }
+      &-last {
+        position: relative;
+        background: #685136;
+        color: #d1d1d1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        z-index: 1;
+      }
+      &-last:hover {
+        color: #ffffff;
+        background: #312619;
+      }
     }
   }
 }
