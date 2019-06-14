@@ -13,12 +13,21 @@
     <div class="home-box">
       <div class="home-box-title">最新文章</div>
       <div class="home-box-link-box">
-        <div class="home-box-link-item"></div>
-        <div class="home-box-link-item"></div>
-        <div class="home-box-link-item"></div>
-        <div class="home-box-link-item home-box-link-item-last">
+        <div
+          class="home-box-link-item"
+          v-for="item in latestData"
+          :key="item.img"
+          @mouseenter="showText = item.id"
+          @mouseleave="showText = ''"
+        >
+          <transition name="slide-top">
+            <div v-if="showText === item.id" class="home-box-link-item-mask">{{ item.text}}</div>
+          </transition>
+          <div class="home-box-link-item-img" :style="imgStyle(item.img)"></div>
+        </div>
+        <div class="home-box-link-last">
           MORE
-          <img src="../assets/more.svg" class="home-box-link-item-more" alt>
+          <img :src="require('../assets/more.svg')" class="home-box-link-item-more" alt>
         </div>
       </div>
     </div>
@@ -26,8 +35,26 @@
 </template>
 
 <script>
+import latest from '../assets/js/latest'
+
 export default {
-  name: 'home'
+  name: 'home',
+  data () {
+    return {
+      latestData: [],
+      showText: ''
+    }
+  },
+  methods: {
+    imgStyle (path) {
+      let style = {}
+      style.background = 'url(' + require(`../assets/img/${path}.png`) + ')no-repeat'
+      return style
+    }
+  },
+  mounted () {
+    this.latestData = latest
+  }
 }
 </script>
 <style lang="less">
@@ -110,12 +137,12 @@ export default {
     &-link-box {
       margin-top: 2rem;
       display: flex;
-      justify-content: space-between;
     }
     &-link-item {
+      position: relative;
       height: 14rem;
       width: 19rem;
-      background: #cca473;
+      margin-right: 1rem;
       cursor: pointer;
       transition: all 0.3s;
       &-more {
@@ -123,21 +150,53 @@ export default {
         height: 80%;
         opacity: 0.1;
       }
-      &-last {
-        position: relative;
-        background: #685136;
-        color: #d1d1d1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.6rem;
-        z-index: 1;
+      &-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
       }
-      &-last:hover {
+      &-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
         color: #ffffff;
-        background: #312619;
+        z-index: 2;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
       }
     }
+    &-link-last {
+      height: 14rem;
+      width: 19rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      background: #977752;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      z-index: 1;
+    }
+    &-link-last:hover {
+      color: #ffffff;
+      background: #52402a;
+    }
   }
+}
+.slide-top-enter-active,
+.slide-top-leave-active {
+  transition: all 0.5s;
+}
+.slide-top-enter,
+.slide-top-leave-to {
+  opacity: 0;
 }
 </style>
