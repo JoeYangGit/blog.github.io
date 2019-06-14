@@ -16,7 +16,8 @@
         <div
           class="home-box-link-item"
           v-for="item in latestData"
-          :key="item.img"
+          :key="item.id"
+          @click="showDetailBox(item)"
           @mouseenter="showText = item.id"
           @mouseleave="showText = ''"
         >
@@ -31,29 +32,42 @@
         </div>
       </div>
     </div>
+    <transition name="slide-top">
+      <Detail v-if="showDetail" :id="info.id" :info="info" @close="showDetail=false"></Detail>
+    </transition>
   </div>
 </template>
 
 <script>
 import latest from '../assets/js/latest'
+import Detail from '@/components/Detail'
 
 export default {
   name: 'home',
+  components: {
+    Detail
+  },
   data () {
     return {
       latestData: [],
-      showText: ''
+      showText: '',
+      showDetail: false,
+      info: latest[0]
     }
   },
   methods: {
     imgStyle (path) {
       let style = {}
-      style.background = 'url(' + require(`../assets/img/${path}.png`) + ')no-repeat'
+      style.backgroundImage = 'url(' + require(`../assets/img/${path}.png`) + ') '
       return style
+    },
+    showDetailBox (item) {
+      this.info = item
+      this.showDetail = true
     }
   },
   mounted () {
-    this.latestData = latest
+    this.latestData = latest.reverse()
   }
 }
 </script>
@@ -163,7 +177,7 @@ export default {
         display: flex;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.7);
         color: #ffffff;
         z-index: 2;
         justify-content: center;
