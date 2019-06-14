@@ -191,7 +191,7 @@ export default {
       cursor: pointer;
       transition: all 0.3s;
       position: relative;
-      background: #b99569;
+      background: #cca473;
       color: #ffffff;
       display: flex;
       align-items: center;
@@ -201,7 +201,7 @@ export default {
     }
     &-link-last:hover {
       color: #ffffff;
-      background: #665034;
+      background: #a0805a;
     }
   }
 }
