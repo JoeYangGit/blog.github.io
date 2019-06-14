@@ -21,7 +21,7 @@
           @mouseenter="showText = item.id"
           @mouseleave="showText = ''"
         >
-          <transition name="slide-top">
+          <transition name="fade">
             <div v-if="showText === item.id" class="home-box-link-item-mask">{{ item.text}}</div>
           </transition>
           <div class="home-box-link-item-img" :style="imgStyle(item.img)"></div>
@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-    <transition name="slide-top">
+    <transition name="fade">
       <Detail v-if="showDetail" :id="info.id" :info="info" @close="showDetail=false"></Detail>
     </transition>
   </div>
@@ -191,7 +191,7 @@ export default {
       cursor: pointer;
       transition: all 0.3s;
       position: relative;
-      background: #977752;
+      background: #b99569;
       color: #ffffff;
       display: flex;
       align-items: center;
@@ -201,16 +201,16 @@ export default {
     }
     &-link-last:hover {
       color: #ffffff;
-      background: #52402a;
+      background: #665034;
     }
   }
 }
-.slide-top-enter-active,
-.slide-top-leave-active {
-  transition: all 0.5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s;
 }
-.slide-top-enter,
-.slide-top-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

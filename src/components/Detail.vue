@@ -24,6 +24,10 @@
         <Textes v-if="item.type === 'text'" :title="item.title" :text="item.content"></Textes>
         <Images v-if="item.type === 'image'" :title="item.title" :image="item.image"></Images>
       </div>
+      <div class="detail-container-footer">
+        <img :src="require('../assets/logo-black.svg')" alt>
+      </div>
+      <div class="detail-container-rect"></div>
     </div>
     <div class="detail-mask" @click="close"></div>
   </div>
@@ -100,7 +104,6 @@ export default {
     background: #f0f0f0;
     width: 70%;
     height: 100vh;
-    border: 1px solid #dcdfe6;
     border-radius: 5px;
     &-header {
       display: flex;
@@ -129,6 +132,16 @@ export default {
     }
     &-content-box {
       margin: 5rem;
+    }
+    &-footer {
+      margin-bottom: 1rem;
+    }
+    &-rect {
+      height: 1rem;
+      width: 100%;
+      background: #cca473;
+      border-end-end-radius: 5px;
+      border-end-start-radius: 5px;
     }
   }
 }
