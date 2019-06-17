@@ -30,11 +30,11 @@ export default {
         {
           path: '/articles',
           name: '文章'
-        },
-        {
-          path: '/about',
-          name: '关于'
         }
+        // {
+        //   path: '/about',
+        //   name: '关于'
+        // }
       ]
     }
   },
