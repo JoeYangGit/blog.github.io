@@ -7,7 +7,7 @@
       </div>
       <div class="articles-list">
         <div class="articles-list-left">
-          <div class="articles-list-left-circle"></div>
+          <div class="articles-list-left-circle" :style="leftColor()" @click="prevPage()"></div>
         </div>
         <div class="articles-list-content">
           <div class="articles-list-content-box">
@@ -20,7 +20,7 @@
               <div class="articles-list-content-item-summary">
                 <div
                   class="articles-list-content-item-summary-title"
-                >{{index + 1 + '. ' + item.text}}</div>
+                >{{currentIndex - 5 + index + '. ' + item.text}}</div>
                 <div class="articles-list-content-item-summary-time">{{item.time}}</div>
               </div>
             </div>
@@ -37,7 +37,7 @@
               <div class="articles-list-content-item-summary">
                 <div
                   class="articles-list-content-item-summary-title"
-                >{{index + 4 + '. ' + item.text}}</div>
+                >{{currentIndex - 2 + index + '. ' + item.text}}</div>
                 <div class="articles-list-content-item-summary-time">{{item.time}}</div>
               </div>
             </div>
@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="articles-list-right">
-          <div class="articles-list-right-circle"></div>
+          <div class="articles-list-right-circle" :style="rightColor()" @click="nextPage()"></div>
         </div>
       </div>
     </div>
@@ -80,7 +80,56 @@ export default {
     showDetailBox (item) {
       this.info = item
       this.showDetail = true
+    },
+    leftColor () {
+      if (this.currentIndex > 6) {
+        return { backgroundColor: '#cca473' }
+      } else {
+        return { backgroundColor: '#d8d8d8' }
+      }
+    },
+    rightColor () {
+      if (this.currentIndex <= this.listData.length) {
+        return { backgroundColor: '#cca473' }
+      } else {
+        return { backgroundColor: '#d8d8d8' }
+      }
+    },
+    prevPage () {
+      if (this.currentIndex > 6) {
+        this.currentIndex -= 6
+        this.listData1 = this.listData.slice(this.currentIndex - 6, this.currentIndex - 3)
+        this.listData2 = this.listData.slice(this.currentIndex - 3, this.currentIndex)
+        this.emptyData = []
+        if (this.listData1.length < 3) {
+          for (let i = 0; i < 3 - this.listData1.length; i++) {
+            this.emptyData.push(i)
+          }
+        } else if (this.listData2.length < 3) {
+          for (let i = 0; i < 3 - this.listData2.length; i++) {
+            this.emptyData.push(i)
+          }
+        }
+      }
+    },
+    nextPage () {
+      if (this.currentIndex <= this.listData.length) {
+        this.listData1 = this.listData.slice(0 + this.currentIndex, 3 + this.currentIndex)
+        this.listData2 = this.listData.slice(3 + this.currentIndex, 6 + this.currentIndex)
+        this.emptyData = []
+        if (this.listData1.length < 3) {
+          for (let i = 0; i < 3 - this.listData1.length; i++) {
+            this.emptyData.push(i)
+          }
+        } else if (this.listData2.length < 3) {
+          for (let i = 0; i < 3 - this.listData2.length; i++) {
+            this.emptyData.push(i)
+          }
+        }
+        this.currentIndex += 6
+      }
     }
+
   },
   mounted () {
     this.listData = latest
@@ -193,14 +242,18 @@ export default {
       width: 4rem;
       height: 4rem;
       border-radius: 10rem;
-      background: #cca473 url("../assets/left.svg") no-repeat center center;
+      background-image: url("../assets/left.svg");
+      background-repeat: no-repeat;
+      background-position: center center;
       background-size: 18%;
     }
     &-right-circle {
       width: 4rem;
       height: 4rem;
       border-radius: 10rem;
-      background: #cca473 url("../assets/right.svg") no-repeat center center;
+      background-image: url("../assets/right.svg");
+      background-repeat: no-repeat;
+      background-position: center center;
       background-size: 18%;
     }
   }
