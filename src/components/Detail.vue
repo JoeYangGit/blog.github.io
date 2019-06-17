@@ -104,7 +104,7 @@ export default {
     background: #f0f0f0;
     width: 70%;
     height: 100vh;
-    border-radius: 5px;
+    // border-radius: 5px;
     &-header {
       display: flex;
       flex-direction: column;
@@ -112,8 +112,8 @@ export default {
       &-img {
         height: 30rem;
         width: 100%;
-        border-top-right-radius: 5px;
-        border-top-left-radius: 5px;
+        // border-top-right-radius: 5px;
+        // border-top-left-radius: 5px;
         border-bottom: 4px solid #cca473;
         background-size: cover;
         background-position: 20% 10%;
@@ -140,8 +140,8 @@ export default {
       height: 1rem;
       width: 100%;
       background: #cca473;
-      border-end-end-radius: 5px;
-      border-end-start-radius: 5px;
+      // border-end-end-radius: 5px;
+      // border-end-start-radius: 5px;
     }
   }
 }

@@ -78,6 +78,7 @@ body {
   background: rgba(0, 0, 0, 0.9);
   align-items: center;
   position: fixed;
+  top: 0;
   z-index: 1000;
   .logo {
     margin: 0 2rem;

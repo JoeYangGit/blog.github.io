@@ -26,7 +26,7 @@
           </transition>
           <div class="home-box-link-item-img" :style="imgStyle(item.img)"></div>
         </div>
-        <div class="home-box-link-last">
+        <div class="home-box-link-last" @click="$router.push({path: '/articles'})">
           MORE
           <img :src="require('../assets/more.svg')" class="home-box-link-item-more" alt>
         </div>
@@ -52,7 +52,7 @@ export default {
       latestData: [],
       showText: '',
       showDetail: false,
-      info: latest[0]
+      info: {}
     }
   },
   methods: {
