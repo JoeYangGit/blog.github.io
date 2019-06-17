@@ -8,9 +8,11 @@ Vue.config.productionTip = false
 router.beforeEach((to, from, next) => {
   if (to.path === '/') {
     next({ path: '/home' })
+    // window.scrollTo(0, 0)
   } else {
     next()
   }
+  window.scrollTo(0, 0)
 })
 
 new Vue({
