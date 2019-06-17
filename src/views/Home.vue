@@ -67,7 +67,7 @@ export default {
     }
   },
   mounted () {
-    this.latestData = latest.reverse()
+    this.latestData = latest.reverse().slice(0, 3)
   }
 }
 </script>

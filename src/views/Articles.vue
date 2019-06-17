@@ -132,7 +132,7 @@ export default {
 
   },
   mounted () {
-    this.listData = latest
+    this.listData = latest.reverse()
     this.listData1 = this.listData.slice(0, 3)
     this.listData2 = this.listData.slice(3, 6)
     if (this.listData1.length < 3) {
