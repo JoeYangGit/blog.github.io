@@ -15,6 +15,11 @@
       </div>
     </div>
     <router-view/>
+    <div id="footer">
+      <div class="footer-logo"></div>
+      <div class="footer-text">Designed & Developed By Joe Yang</div>
+      <div class="footer-info">微信: ibambooes</div>
+    </div>
   </div>
 </template>
 
@@ -118,6 +123,30 @@ body {
       background: rgba(0, 0, 0, 0.5);
       border-bottom: 2px solid #cca473;
     }
+  }
+}
+#footer {
+  height: 12rem;
+  width: 100%;
+  margin-top: 4rem;
+  border-top: 1px solid #dcdfe6;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  .footer-logo {
+    background: url("./assets/logo-black.svg") no-repeat center center;
+    background-size: contain;
+    height: 50%;
+    width: 100%;
+  }
+  .footer-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #585858;
+  }
+  .footer-info {
+    color: #bdbdbd;
   }
 }
 </style>
