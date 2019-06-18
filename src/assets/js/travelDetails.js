@@ -1,7 +1,6 @@
 const travelDetails = {
   '20190614-1': {
     title: '你还未来 怎敢老去',
-    images: ['detail-1'],
     contents: {
       p1: {
         title: '标题一',

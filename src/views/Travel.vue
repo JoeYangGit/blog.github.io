@@ -3,7 +3,7 @@
     <div class="articles">
       <div class="articles-left">
         <div class="articles-left-img"></div>
-        <div class="articles-left-title">全部文章</div>
+        <div class="articles-left-title">全部游记</div>
       </div>
       <div class="articles-list">
         <div class="articles-list-left">
@@ -155,7 +155,7 @@ export default {
   justify-content: space-between;
   &-left {
     background: #cca473;
-    height: 40rem;
+    height: 44rem;
     width: 26rem;
     margin: 0 1rem;
     &-title {

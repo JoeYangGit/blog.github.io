@@ -19,7 +19,18 @@
           :key="item.id"
           @click="showDetailBox(item)"
         >
-          <div class="home-box-link-item-text">{{item.text}}</div>
+          <div class="home-box-link-item-text">
+            <div class="home-box-link-item-text-title">{{item.text}}</div>
+            <div class="home-box-link-item-text-info">
+              <span
+                class="home-box-link-item-text-info-tag"
+                v-for="tag in item.tag"
+                :key="tag"
+                :style="tagStyle(tag)"
+              >{{tag}}</span>
+            </div>
+            <div class="home-box-link-item-text-info-time">时间：{{item.time}}</div>
+          </div>
         </div>
         <div class="home-box-link-last" @click="$router.push({path: '/tech'})">
           MORE
@@ -103,6 +114,27 @@ export default {
       let style = {}
       style.backgroundImage = 'url(' + require(`../assets/img/${type}/${path}.png`) + ') '
       return style
+    },
+    tagStyle (tag) {
+      let color = '#cca473'
+      switch (tag) {
+        case 'Git':
+          color = '#3E60C1'
+          break
+        case 'Vue':
+          color = '#42b983'
+          break
+        case 'Less':
+          color = '#47B0ED'
+          break
+        case 'Webpack':
+          color = '#A163F7'
+          break
+        case 'JavaScript':
+          color = '#F0882C'
+          break
+      }
+      return { background: color }
     },
     showDetailBox (item) {
       this.info = item
@@ -214,9 +246,20 @@ export default {
       cursor: pointer;
       transition: all 0.3s;
       &-text {
+        height: 100%;
+        padding: 0 1.5rem;
         display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         &-title {
           font-size: 2rem;
+          font-weight: 500;
+        }
+        &-info-tag {
+          margin: 0.5rem;
+          padding: 0.4rem 0.6rem;
+          border-radius: 5px;
+          color: #ffffff;
         }
       }
       &-more {
@@ -267,6 +310,9 @@ export default {
 }
 .tech-box {
   background: #eaedf5;
+}
+.tech-box:hover {
+  background: #dee1eb;
 }
 .fade-enter-active,
 .fade-leave-active {
