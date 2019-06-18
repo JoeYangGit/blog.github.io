@@ -79,6 +79,8 @@
 
 <script>
 import latestTravel from '../assets/js/latestTravel'
+import latestTech from '../assets/js/latestTech'
+import latestFeeling from '../assets/js/latestFeeling'
 import Detail from '@/components/Detail'
 
 export default {
@@ -109,6 +111,8 @@ export default {
   },
   mounted () {
     this.latestTravelData = [...this.latestTravelData, ...latestTravel.slice(-3)].reverse()
+    this.latestTechData = [...this.latestTechData, ...latestTech.slice(-3)].reverse()
+    this.latestFeelingData = [...this.latestFeelingData, ...latestFeeling.slice(-3)].reverse()
   }
 }
 </script>
@@ -117,7 +121,7 @@ export default {
   position: relative;
   padding-top: 4rem;
   &-banner {
-    padding: 4% 0;
+    padding: 7% 0;
     width: 100%;
     background: #000000;
     border-bottom: 4px solid #cca473;

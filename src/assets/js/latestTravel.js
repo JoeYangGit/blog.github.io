@@ -1,6 +1,7 @@
 const latestTravel = [
   {
     id: '20190614-1',
+    type: 'travel',
     text: '你还未来 怎敢老去',
     img: 'home-1',
     detailImg: 'detail-1',
@@ -8,6 +9,7 @@ const latestTravel = [
   },
   {
     id: '20190614-2',
+    type: 'travel',
     text: '未来的我 奉陪到底',
     img: 'home-2',
     detailImg: 'detail-2',

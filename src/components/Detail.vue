@@ -35,6 +35,8 @@
 
 <script>
 import travelDetails from '../assets/js/travelDetails'
+import techDetails from '../assets/js/techDetails'
+import feelingDetails from '../assets/js/feelingDetails'
 import TextImage from '@/components/TextImage.vue'
 import Textes from '@/components/Text.vue'
 import Images from '@/components/Image.vue'
@@ -64,11 +66,17 @@ export default {
       this.$emit('close')
     },
     imgStyle (path) {
-      return { backgroundImage: 'url(' + require(`../assets/img/travel/${path}.png`) + ')' }
+      return { backgroundImage: 'url(' + require(`../assets/img/${this.info.type}/${path}.png`) + ')' }
     }
   },
   mounted () {
-    this.details = travelDetails[this.id]
+    if (this.info.type === 'travel') {
+      this.details = travelDetails[this.id]
+    } else if (this.info.type === 'tech') {
+      this.details = techDetails[this.id]
+    } else if (this.info.type === 'feeling') {
+      this.details = feelingDetails[this.id]
+    }
     this.contents = Object.values(this.details.contents)
     const body = document.getElementsByTagName('body')[0]
     body.style.overflow = 'hidden'
