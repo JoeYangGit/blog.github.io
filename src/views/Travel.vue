@@ -57,11 +57,11 @@
   </div>
 </template>
 <script>
-import latest from '../assets/js/latest'
+import latestTravel from '../assets/js/latestTravel'
 import Detail from '@/components/Detail'
 
 export default {
-  name: 'articles',
+  name: 'travel',
   components: {
     Detail
   },
@@ -132,7 +132,7 @@ export default {
 
   },
   mounted () {
-    this.listData = [...this.listData, ...latest].reverse()
+    this.listData = [...this.listData, ...latestTravel].reverse()
     this.listData1 = this.listData.slice(0, 3)
     this.listData2 = this.listData.slice(3, 6)
     if (this.listData1.length < 3) {

@@ -1,4 +1,4 @@
-const latest = [
+const latestTravel = [
   {
     id: '20190614-1',
     text: '你还未来 怎敢老去',
@@ -15,4 +15,4 @@ const latest = [
   }
 ]
 
-export default latest
+export default latestTravel

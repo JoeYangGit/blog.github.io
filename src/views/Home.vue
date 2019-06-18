@@ -11,11 +11,28 @@
       <div class="home-banner-mask"></div>
     </div>
     <div class="home-box">
-      <div class="home-box-title">最新文章</div>
+      <div class="home-box-title">技术 · Tech</div>
+      <div class="home-box-link-box">
+        <div
+          class="home-box-link-item tech-box"
+          v-for="item in latestTechData"
+          :key="item.id"
+          @click="showDetailBox(item)"
+        >
+          <div class="home-box-link-item-text">{{item.text}}</div>
+        </div>
+        <div class="home-box-link-last" @click="$router.push({path: '/tech'})">
+          MORE
+          <img :src="require('../assets/more.svg')" class="home-box-link-item-more" alt>
+        </div>
+      </div>
+    </div>
+    <div class="home-box">
+      <div class="home-box-title">游记 · Travel</div>
       <div class="home-box-link-box">
         <div
           class="home-box-link-item"
-          v-for="item in latestData"
+          v-for="item in latestTravelData"
           :key="item.id"
           @click="showDetailBox(item)"
           @mouseenter="showText = item.id"
@@ -26,7 +43,29 @@
           </transition>
           <div class="home-box-link-item-img" :style="imgStyle(item.img)"></div>
         </div>
-        <div class="home-box-link-last" @click="$router.push({path: '/articles'})">
+        <div class="home-box-link-last" @click="$router.push({path: '/travel'})">
+          MORE
+          <img :src="require('../assets/more.svg')" class="home-box-link-item-more" alt>
+        </div>
+      </div>
+    </div>
+    <div class="home-box">
+      <div class="home-box-title">随笔 · Feeling</div>
+      <div class="home-box-link-box">
+        <div
+          class="home-box-link-item"
+          v-for="item in latestFeelingData"
+          :key="item.id"
+          @click="showDetailBox(item)"
+          @mouseenter="showText = item.id"
+          @mouseleave="showText = ''"
+        >
+          <transition name="fade">
+            <div v-if="showText === item.id" class="home-box-link-item-mask">{{ item.text}}</div>
+          </transition>
+          <div class="home-box-link-item-img" :style="imgStyle(item.img)"></div>
+        </div>
+        <div class="home-box-link-last" @click="$router.push({path: '/feeling'})">
           MORE
           <img :src="require('../assets/more.svg')" class="home-box-link-item-more" alt>
         </div>
@@ -39,7 +78,7 @@
 </template>
 
 <script>
-import latest from '../assets/js/latest'
+import latestTravel from '../assets/js/latestTravel'
 import Detail from '@/components/Detail'
 
 export default {
@@ -49,7 +88,9 @@ export default {
   },
   data () {
     return {
-      latestData: [],
+      latestTravelData: [],
+      latestTechData: [],
+      latestFeelingData: [],
       showText: '',
       showDetail: false,
       info: {}
@@ -67,7 +108,7 @@ export default {
     }
   },
   mounted () {
-    this.latestData = [...this.latestData, ...latest.slice(-3)].reverse()
+    this.latestTravelData = [...this.latestTravelData, ...latestTravel.slice(-3)].reverse()
   }
 }
 </script>
@@ -140,13 +181,22 @@ export default {
     margin: 2rem 0;
     position: relative;
     &-title {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 600;
+      position: relative;
     }
     &-title::before {
       content: "";
       border-left: 10px solid #cca473;
       margin-right: 2rem;
+    }
+    &-title::after {
+      content: "Latest";
+      position: absolute;
+      color: #eaedf5;
+      left: 2rem;
+      z-index: -1;
+      font-size: 4rem;
     }
     &-link-box {
       margin-top: 2rem;
@@ -159,6 +209,12 @@ export default {
       margin-right: 1rem;
       cursor: pointer;
       transition: all 0.3s;
+      &-text {
+        display: flex;
+        &-title {
+          font-size: 2rem;
+        }
+      }
       &-more {
         position: absolute;
         height: 80%;
@@ -204,6 +260,9 @@ export default {
       background: #a0805a;
     }
   }
+}
+.tech-box {
+  background: #eaedf5;
 }
 .fade-enter-active,
 .fade-leave-active {

@@ -33,8 +33,16 @@ export default {
           name: '主页'
         },
         {
-          path: '/articles',
-          name: '文章'
+          path: '/tech',
+          name: '技术'
+        },
+        {
+          path: '/travel',
+          name: '游记'
+        },
+        {
+          path: '/feeling',
+          name: '随笔'
         }
         // {
         //   path: '/about',
