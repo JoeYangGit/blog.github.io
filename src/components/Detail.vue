@@ -10,15 +10,22 @@
         <div class="detail-container-header-title">{{info.text}}</div>
         <div class="detail-container-header-rect"></div>
       </div>
-      <div v-if="info.type === 'tech'" class="detail-container-info">
-        <div class="detail-container-info-time">时间：{{ info.time }}</div>
-        <div
-          class="detail-container-info-tags"
-          v-for="tag in info.tag"
-          :key="tag"
-          :style="tagStyle(tag)"
-        >{{tag}}</div>
+      <!-- 技术 -->
+      <div v-if="info.type === 'tech'">
+        <div class="detail-container-info">
+          <div class="detail-container-info-time">时间：{{ info.time }}</div>
+          <div
+            class="detail-container-info-tags"
+            v-for="tag in info.tag"
+            :key="tag"
+            :style="tagStyle(tag)"
+          >{{tag}}</div>
+        </div>
+        <div class="detail-container-content-box" v-for="item in contents" :key="item.title">
+          <Textes v-if="item.type === 'text'" :title="item.title" :text="item.content"></Textes>
+        </div>
       </div>
+      <!-- 游记 -->
       <div v-else-if="info.type === 'travel'">
         <div v-for="item in contents" :key="item.title" class="detail-container-content-box">
           <TextImage
@@ -39,6 +46,7 @@
           <Images v-if="item.type === 'image'" :title="item.title" :image="item.image"></Images>
         </div>
       </div>
+      <!-- 随笔 -->
       <div v-else-if="info.type === 'feeling'"></div>
       <div class="detail-container-footer">
         <img :src="require('../assets/logo-black.svg')">
