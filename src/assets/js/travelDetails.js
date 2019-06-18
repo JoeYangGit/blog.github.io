@@ -1,4 +1,4 @@
-const details = {
+const travelDetails = {
   '20190614-1': {
     title: '你还未来 怎敢老去',
     images: ['detail-1'],
@@ -59,4 +59,4 @@ const details = {
   }
 }
 
-export default details
+export default travelDetails

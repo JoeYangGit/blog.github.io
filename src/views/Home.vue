@@ -41,7 +41,7 @@
           <transition name="fade">
             <div v-if="showText === item.id" class="home-box-link-item-mask">{{ item.text}}</div>
           </transition>
-          <div class="home-box-link-item-img" :style="imgStyle(item.img)"></div>
+          <div class="home-box-link-item-img" :style="imgStyle(item.img, 'travel')"></div>
         </div>
         <div class="home-box-link-last" @click="$router.push({path: '/travel'})">
           MORE
@@ -63,7 +63,7 @@
           <transition name="fade">
             <div v-if="showText === item.id" class="home-box-link-item-mask">{{ item.text}}</div>
           </transition>
-          <div class="home-box-link-item-img" :style="imgStyle(item.img)"></div>
+          <div class="home-box-link-item-img" :style="imgStyle(item.img, 'feeling')"></div>
         </div>
         <div class="home-box-link-last" @click="$router.push({path: '/feeling'})">
           MORE
@@ -97,9 +97,9 @@ export default {
     }
   },
   methods: {
-    imgStyle (path) {
+    imgStyle (path, type) {
       let style = {}
-      style.backgroundImage = 'url(' + require(`../assets/img/${path}.png`) + ') '
+      style.backgroundImage = 'url(' + require(`../assets/img/${type}/${path}.png`) + ') '
       return style
     },
     showDetailBox (item) {

@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import detail from '../assets/js/details'
+import travelDetails from '../assets/js/travelDetails'
 import TextImage from '@/components/TextImage.vue'
 import Textes from '@/components/Text.vue'
 import Images from '@/components/Image.vue'
@@ -64,11 +64,11 @@ export default {
       this.$emit('close')
     },
     imgStyle (path) {
-      return { backgroundImage: 'url(' + require(`../assets/img/${path}.png`) + ')' }
+      return { backgroundImage: 'url(' + require(`../assets/img/travel/${path}.png`) + ')' }
     }
   },
   mounted () {
-    this.details = detail[this.id]
+    this.details = travelDetails[this.id]
     this.contents = Object.values(this.details.contents)
     const body = document.getElementsByTagName('body')[0]
     body.style.overflow = 'hidden'
