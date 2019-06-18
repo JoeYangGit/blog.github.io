@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Travel from './views/Travel.vue'
+import Tech from './views/Tech.vue'
+import Feeling from './views/Feeling.vue'
 import About from './views/About.vue'
 
 Vue.use(Router)
@@ -16,7 +18,7 @@ export default new Router({
     {
       path: '/tech',
       name: 'tech',
-      component: Travel
+      component: Tech
     },
     {
       path: '/travel',
@@ -26,7 +28,7 @@ export default new Router({
     {
       path: '/feeling',
       name: 'feeling',
-      component: Travel
+      component: Feeling
     },
     {
       path: '/about',
