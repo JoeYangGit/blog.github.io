@@ -41,7 +41,6 @@ export default {
     text-align: left;
   }
   &-container {
-    // min-height: 12rem;
     &-text {
       text-align: left;
       flex: 1;
