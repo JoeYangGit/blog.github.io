@@ -22,7 +22,7 @@
           >{{tag}}</div>
         </div>
         <div class="detail-container-content-box" v-for="item in contents" :key="item.title">
-          <Textes v-if="item.type === 'text'" :title="item.title" :text="item.content"></Textes>
+          <TechText :title="item.title" :contents="item"></TechText>
         </div>
       </div>
       <!-- 游记 -->
@@ -64,6 +64,7 @@ import feelingDetails from '../assets/js/feelingDetails'
 import TextImage from '@/components/TextImage.vue'
 import Textes from '@/components/Text.vue'
 import Images from '@/components/Image.vue'
+import TechText from '@/components/TechText.vue'
 
 export default {
   name: 'Detail',
@@ -77,7 +78,8 @@ export default {
   components: {
     TextImage,
     Textes,
-    Images
+    Images,
+    TechText
   },
   data () {
     return {
