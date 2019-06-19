@@ -61,7 +61,7 @@
       </div>
     </div>
     <div class="home-box">
-      <div class="home-box-title">随笔 · Feeling</div>
+      <div class="home-box-title">随笔 · Feelings</div>
       <div class="home-box-link-box">
         <div
           class="home-box-link-item"
