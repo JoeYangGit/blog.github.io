@@ -256,7 +256,7 @@ export default {
           font-weight: 500;
         }
         &-info-tag {
-          margin: 0.5rem;
+          margin: 0.2rem;
           padding: 0.4rem 0.6rem;
           border-radius: 5px;
           color: #ffffff;
