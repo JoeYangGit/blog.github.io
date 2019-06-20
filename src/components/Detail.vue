@@ -47,7 +47,9 @@
         </div>
       </div>
       <!-- 随笔 -->
-      <div v-else-if="info.type === 'feeling'"></div>
+      <div v-else-if="info.type === 'feeling'">
+        <FeelingText v-for="item in contents" :key="item.content" :contents="item"></FeelingText>
+      </div>
       <div class="detail-container-footer">
         <img :src="require('../assets/logo-black.svg')">
       </div>
@@ -65,6 +67,7 @@ import TextImage from '@/components/TextImage.vue'
 import Textes from '@/components/Text.vue'
 import Images from '@/components/Image.vue'
 import TechText from '@/components/TechText.vue'
+import FeelingText from '@/components/FeelingText.vue'
 
 export default {
   name: 'Detail',
@@ -79,7 +82,8 @@ export default {
     TextImage,
     Textes,
     Images,
-    TechText
+    TechText,
+    FeelingText
   },
   data () {
     return {

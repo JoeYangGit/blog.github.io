@@ -1,5 +1,5 @@
 const travelDetails = {
-  '20190614-1': {
+  '20190620-1': {
     title: '你还未来 怎敢老去',
     contents: {
       p1: {

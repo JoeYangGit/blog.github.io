@@ -64,21 +64,19 @@
       <div class="home-box-title">随笔 · Feelings</div>
       <div class="home-box-link-box">
         <div
-          class="home-box-link-item"
+          class="home-box-link-item feeling-box"
           v-for="item in latestFeelingData"
           :key="item.id"
           @click="showDetailBox(item)"
-          @mouseenter="showText = item.id"
-          @mouseleave="showText = ''"
         >
-          <transition name="fade">
-            <div v-if="showText === item.id" class="home-box-link-item-mask">{{ item.text}}</div>
-          </transition>
-          <div class="home-box-link-item-img" :style="imgStyle(item.img, 'feeling')"></div>
+          <div class="home-box-link-item-text">
+            <div class="home-box-link-item-text-title">{{ item.text}}</div>
+            <div class="home-box-link-item-text-info-time">时间：{{item.time}}</div>
+          </div>
         </div>
         <div class="home-box-link-last" @click="$router.push({path: '/feeling'})">
           MORE
-          <img :src="require('../assets/more.svg')" class="home-box-link-item-more" alt>
+          <img :src="require('../assets/more.svg')" class="home-box-link-item-more">
         </div>
       </div>
     </div>
@@ -286,6 +284,14 @@ export default {
         align-items: center;
         font-size: 1.6rem;
       }
+      &-feeling {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        font-size: 1.6rem;
+      }
     }
     &-link-last {
       height: 14rem;
@@ -307,6 +313,7 @@ export default {
     }
   }
 }
+.feeling-box,
 .tech-box {
   background: #eaedf5;
 }

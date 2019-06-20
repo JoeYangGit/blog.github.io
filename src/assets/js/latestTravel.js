@@ -1,11 +1,11 @@
 const latestTravel = [
   // {
-  //   id: '20190614-1',
+  //   id: '20190620-1',
   //   type: 'travel',
-  //   text: '你还未来 怎敢老去',
+  //   text: '青城 · 问道',
   //   img: 'home-1',
   //   detailImg: 'detail-1',
-  //   time: '2019-06-14'
+  //   time: '2019-06-20'
   // }
 ]
 
