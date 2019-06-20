@@ -168,15 +168,14 @@ export default {
       left: 0;
       background: linear-gradient(
         to right,
-        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.1),
         10%,
-        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.7),
         rgba(0, 0, 0, 1),
         rgba(0, 0, 0, 1),
-        rgba(0, 0, 0, 1),
-        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.7),
         90%,
-        rgba(0, 0, 0, 0.2)
+        rgba(0, 0, 0, 0.1)
       );
       height: 100%;
       width: 100%;
@@ -184,7 +183,7 @@ export default {
     &-img-left {
       position: absolute;
       left: 0;
-      opacity: 0.6;
+      opacity: 0.8;
       height: 100%;
       width: 100%;
       background: url("../assets/banner-left.png") no-repeat left center;
@@ -193,7 +192,7 @@ export default {
     &-img-right {
       position: absolute;
       right: 0;
-      opacity: 0.6;
+      opacity: 0.8;
       height: 100%;
       width: 100%;
       background: url("../assets/banner-right.png") no-repeat right center;

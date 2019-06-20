@@ -1,7 +1,6 @@
 const techDetails = {
   '20190618-1': {
     title: '搭建个站初体验',
-    desc: '',
     contents: {
       p1: {
         title: '',

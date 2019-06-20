@@ -21,7 +21,7 @@
             :style="tagStyle(tag)"
           >{{tag}}</div>
         </div>
-        <div class="detail-container-content-box" v-for="item in contents" :key="item.title">
+        <div class="detail-container-content-box" v-for="item in contents" :key="item.content[0]">
           <TechText :title="item.title" :contents="item"></TechText>
         </div>
       </div>
