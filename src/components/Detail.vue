@@ -47,7 +47,7 @@
         </div>
       </div>
       <!-- 随笔 -->
-      <div v-else-if="info.type === 'feeling'">
+      <div v-else-if="info.type === 'feeling'" class="detail-container-feeling-box">
         <FeelingText v-for="item in contents" :key="item.content" :contents="item"></FeelingText>
       </div>
       <div class="detail-container-footer">
@@ -215,6 +215,9 @@ export default {
         border-radius: 5px;
         color: #ffffff;
       }
+    }
+    &-feeling-box {
+      margin-bottom: 5rem;
     }
   }
 }
