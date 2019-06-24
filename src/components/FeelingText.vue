@@ -5,7 +5,11 @@
       <div class="feeling-text-container-img" :style="imageStyle()"></div>
     </div>
     <div v-else class="feeling-text-container">
-      <p class="feeling-text-container-text">{{ contents.content }}</p>
+      <p
+        class="feeling-text-container-text"
+        v-if="contents.content !== 'break'"
+      >{{ contents.content }}</p>
+      <p class="feeling-text-container-text" v-else>&nbsp;</p>
     </div>
   </div>
 </template>

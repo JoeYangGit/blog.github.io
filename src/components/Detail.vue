@@ -48,7 +48,7 @@
       </div>
       <!-- 随笔 -->
       <div v-else-if="info.type === 'feeling'" class="detail-container-feeling-box">
-        <FeelingText v-for="item in contents" :key="item.content" :contents="item"></FeelingText>
+        <FeelingText v-for="(item, index) in contents" :key="index" :contents="item"></FeelingText>
       </div>
       <div class="detail-container-footer">
         <img :src="require('../assets/logo-black.svg')">
