@@ -1,14 +1,14 @@
 <template>
   <div class="text-left">
     <div v-if="type === 'left'">
-      <div class="text-left-title left">{{ title }}</div>
+      <div class="text-left-title left" v-if="title !== undefined">{{ title }}</div>
       <div class="text-left-container">
         <div class="text-left-container-text">{{ text }}</div>
         <div class="text-left-container-img" :style="imageStyle()"></div>
       </div>
     </div>
     <div v-else>
-      <div class="text-left-title right">{{ title }}</div>
+      <div class="text-left-title right" v-if="title !== undefined">{{ title }}</div>
       <div class="text-left-container">
         <div class="text-left-container-img" :style="imageStyle()"></div>
         <div class="text-left-container-text">{{ text }}</div>

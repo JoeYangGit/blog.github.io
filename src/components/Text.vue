@@ -1,6 +1,6 @@
 <template>
   <div class="text">
-    <div class="text-title">{{ title }}</div>
+    <div class="text-title" v-if="title !== undefined">{{ title }}</div>
     <div class="text-container">
       <div class="text-container-text">{{ text }}</div>
     </div>
@@ -35,6 +35,7 @@ export default {
     min-height: 12rem;
     align-items: center;
     &-text {
+      text-indent: 2rem;
       text-align: center;
       padding: 2rem 5rem;
       flex: 1;

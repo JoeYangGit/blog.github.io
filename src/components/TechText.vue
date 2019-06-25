@@ -1,6 +1,6 @@
 <template>
   <div class="tech-text">
-    <div class="tech-text-title" v-if="title !== ''">{{ title }}</div>
+    <div class="tech-text-title" v-if="title !== undefined">{{ title }}</div>
     <div class="tech-text-container" v-if="contents.image !== undefined">
       <p class="tech-text-container-text" v-for="item in contents.content" :key="item">{{ item }}</p>
       <div class="tech-text-container-img" :style="imageStyle()"></div>

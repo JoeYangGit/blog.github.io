@@ -1,6 +1,6 @@
 <template>
   <div class="image">
-    <div class="image-title" v-if="title !== ''">{{ title }}</div>
+    <div class="image-title" v-if="title !== undefined">{{ title }}</div>
     <div class="image-container" :style="imageStyle()">
       <!-- <div class="imaage-container-img" :style="imageStyle()"></div> -->
     </div>
