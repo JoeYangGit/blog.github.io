@@ -110,7 +110,7 @@ export default {
   methods: {
     imgStyle (path, type) {
       let style = {}
-      style.backgroundImage = 'url(' + require(`../assets/img/${type}/${path}.png`) + ') '
+      style.backgroundImage = 'url(' + require(`../assets/img/${type}/${path}.jpg`) + ') '
       return style
     },
     tagStyle (tag) {
@@ -184,7 +184,7 @@ export default {
       opacity: 0.8;
       height: 100%;
       width: 100%;
-      background: url("../assets/banner-left.png") no-repeat left center;
+      background: url("../assets/banner-left.jpg") no-repeat left center;
       background-size: contain;
     }
     &-img-right {
@@ -193,7 +193,7 @@ export default {
       opacity: 0.8;
       height: 100%;
       width: 100%;
-      background: url("../assets/banner-right.png") no-repeat right center;
+      background: url("../assets/banner-right.jpg") no-repeat right center;
       background-size: contain;
     }
     &-title {

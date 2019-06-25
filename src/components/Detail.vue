@@ -97,7 +97,7 @@ export default {
       this.$emit('close')
     },
     imgStyle (path) {
-      return { backgroundImage: 'url(' + require(`../assets/img/${this.info.type}/${path}.png`) + ')' }
+      return { backgroundImage: 'url(' + require(`../assets/img/${this.info.type}/${path}.jpg`) + ')' }
     },
     tagStyle (tag) {
       let color = '#cca473'

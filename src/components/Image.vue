@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     imageStyle () {
-      return { backgroundImage: 'url(' + require(`../assets/img/travel/${this.image}.png`) + ')' }
+      return { backgroundImage: 'url(' + require(`../assets/img/travel/${this.image}.jpg`) + ')' }
     }
   }
 
