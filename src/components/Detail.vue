@@ -27,7 +27,8 @@
       </div>
       <!-- 游记 -->
       <div v-else-if="info.type === 'travel'">
-        <div v-for="item in contents" :key="item.title" class="detail-container-content-box">
+        <div class="detail-container-content-summary">{{details.summary}}</div>
+        <div v-for="(item, index) in contents" :key="index" class="detail-container-content-box">
           <TextImage
             v-if="item.type === 'text-left'"
             type="left"
@@ -188,6 +189,14 @@ export default {
         background: #cca473;
         margin-bottom: 3.5rem;
       }
+    }
+    &-content-summary {
+      text-indent: 2rem;
+      text-align: center;
+      padding: 2rem 5rem;
+      flex: 1;
+      line-height: 3rem;
+      letter-spacing: 0.5rem;
     }
     &-content-box {
       margin: 5rem;

@@ -317,6 +317,7 @@ export default {
 .tech-box {
   background: #eaedf5;
 }
+.feeling-box:hover,
 .tech-box:hover {
   background: #dee1eb;
 }

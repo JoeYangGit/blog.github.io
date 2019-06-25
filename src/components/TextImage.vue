@@ -62,6 +62,7 @@ export default {
     height: 24rem;
     align-items: center;
     &-text {
+      text-indent: 2rem;
       text-align: left;
       padding: 2rem 5rem;
       flex: 1;
